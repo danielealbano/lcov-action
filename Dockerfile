@@ -11,4 +11,6 @@ RUN apk update && apk add lcov bash
 
 COPY entrypoint.sh /
 
+RUN chmod 700 /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
