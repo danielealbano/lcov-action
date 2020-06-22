@@ -8,13 +8,17 @@ This action let you to run lcov with the needed parameters
 
 ### `gcov_tool`
 
-**Required** Path to the gcov binary, by default /usr/bin/gcov.
+**Required** Path to the gcov binary, by default `/usr/bin/gcov`.
 
-It's possible to use /usr/bin/gcov-7 and  /usr/bin/gcov-8.
+It's possible to use `/usr/bin/gcov-7` and `/usr/bin/gcov-8`.
 
-### `params`
+### `remove_patterns`
 
-**Required** Parameters to pass to lcov, no default.
+**Required** Comma separated list of simple name-matching patterns to remove from the build, can be empty.
+
+### `output_lcov_info`
+
+**Required** Output path for the lcov info, by default `coverage.info`
 
 ## Outputs
 
@@ -27,7 +31,6 @@ gcov 7 (version 7.5.0)
 uses: daalbano/lcov-action@v1.0.0
 with:
   gcov_tool: /usr/bin/gcov-7
-  params: -c --directory . --output-file coverage.info
 ```
 
 gcov 8 (version 8.4.0)
@@ -35,14 +38,18 @@ gcov 8 (version 8.4.0)
 uses: daalbano/lcov-action@v1.0.0
 with:
   gcov_tool: /usr/bin/gcov-8
-  params: -c --directory . --output-file coverage.info
 ```
 
 gcov 9 (version 9.3.0) - default
 ```yaml
 uses: daalbano/lcov-action@v1.0.0
+```
+
+Remove the 3rdparties and benchmarks subfolder (and any path that would contain these two) from the code coverage
+```yaml
+uses: daalbano/lcov-action@v1.0.0
 with:
-  params: -c --directory . --output-file coverage.info
+  remove_patterns: 3rdparties,benchmarks
 ```
 
 ## Author
