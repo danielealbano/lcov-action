@@ -5,7 +5,7 @@ LABEL "com.github.actions.description"="lcov action to run lcov"
 LABEL "com.github.actions.name"="lcov-action"
 LABEL "com.github.actions.color"="blue"
 
-RUN apt-get update && apt-get install -y lcov
+RUN apt-get update && apt-get install -y cpp gcc cpp-7 gcc-7 lcov
 
 COPY entrypoint.sh /
 

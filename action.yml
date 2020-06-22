@@ -1,10 +1,14 @@
 name: 'lcov-action'
 description: 'lcov action to run lcov'
 inputs:
-  params:
-    description: 'lcov parameters'
-    required: true
-    default: ''
+    gcov_path:
+        description: 'Path to gcov (github uses GCC 7.5.0)'
+        required: true
+        default: '/usr/bin/gcov'
+    params:
+        description: 'lcov parameters'
+        required: true
+        default: ''
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+    using: 'docker'
+    image: 'Dockerfile'
