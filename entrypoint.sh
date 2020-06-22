@@ -9,4 +9,6 @@ ln -s $GITHUB_WORKSPACE $RUNNER_WORKSPACE/$REPOSITORY_NAME
 
 cd $GITHUB_WORKSPACE
 
+echo "/usr/bin/lcov --gcov-tool ${INPUT_GCOV_PATH} ${INPUT_PARAMS}"
+
 /usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH $INPUT_PARAMS
