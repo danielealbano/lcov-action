@@ -4,7 +4,7 @@ set -eu
 REPOSITORY_NAME=$(basename -- $RUNNER_WORKSPACE)
 
 # Map the directory used for the build to the github workspace to make lcov happy
-mv -p $RUNNER_WORKSPACE
+mkdir $RUNNER_WORKSPACE -p
 ln -s $GITHUB_WORKSPACE $RUNNER_WORKSPACE/$REPOSITORY_NAME
 
 cd $GITHUB_WORKSPACE
