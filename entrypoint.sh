@@ -11,7 +11,6 @@ ln -s $GITHUB_WORKSPACE $RUNNER_WORKSPACE/$REPOSITORY_NAME
 cd $GITHUB_WORKSPACE
 
 mkdir -p $TEMP_LCOV_PATH
-[[ -f temp-lcov.info ]] rm temp-lcov.info
 
 # Generate the initial lcov version and strips out anything related to /usr
 /usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH -i -c -d . -o $TEMP_LCOV_PATH/info
