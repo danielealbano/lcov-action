@@ -3,4 +3,4 @@ set -eu
 
 cd $GITHUB_WORKSPACE
 
-/usr/bin/lcov $PARAMS
+/usr/bin/lcov $INPUT_PARAMS
