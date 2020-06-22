@@ -9,4 +9,4 @@ jobs:
     
     - name: Docker Build
       run: |
-        docker build -t 2lcov-action .
+        docker build -t lcov-action .
