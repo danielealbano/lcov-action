@@ -1,0 +1,10 @@
+name: 'lcov-action'
+description: 'lcov action to run lcov'
+inputs:
+  params:
+    description: 'lcov parameters'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
