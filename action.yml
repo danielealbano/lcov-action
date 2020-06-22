@@ -5,10 +5,14 @@ inputs:
         description: 'Path to gcov (github uses GCC 7.5.0)'
         required: true
         default: '/usr/bin/gcov'
-    params:
-        description: 'lcov parameters'
+    remove_patterns:
+        description: 'Remove patterns, comma separated'
         required: true
         default: ''
+    output_lcov_info:
+        description: 'Output lcov info file'
+        required: true
+        default: 'coverage.info'
 runs:
     using: 'docker'
     image: 'Dockerfile'
