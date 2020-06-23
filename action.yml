@@ -1,5 +1,5 @@
 name: 'lcov-action'
-description: 'lcov action to run lcov'
+description: 'Action to run lcov'
 inputs:
     gcov_path:
         description: 'Path to gcov (github uses GCC 7.5.0)'
