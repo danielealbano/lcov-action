@@ -1,5 +1,7 @@
 name: 'lcov-action'
 description: 'Action to run lcov'
+color: 'blue'
+icon: 'check-square'
 inputs:
     gcov_path:
         description: 'Path to gcov (github uses GCC 7.5.0)'
