@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 LABEL MAINTAINER="Daniele Salvatore Albano <d.albano@google.com>"
-LABEL "com.github.actions.description"="lcov action to run lcov"
+LABEL "com.github.actions.description"="Action to run lcov"
 LABEL "com.github.actions.name"="lcov-action"
 LABEL "com.github.actions.color"="blue"
 
