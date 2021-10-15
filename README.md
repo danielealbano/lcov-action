@@ -20,6 +20,14 @@ It's possible to use `/usr/bin/gcov-7` and `/usr/bin/gcov-8`.
 
 **Required** Output path for the lcov info, by default `coverage.info`
 
+### `build_dir`
+
+**Required** Build directory (see lcov man for option -d)
+
+### `base_dir`
+
+**Required** Base directory (see lcov man for option -b)
+
 ## Outputs
 
 No outputs.

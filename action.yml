@@ -16,6 +16,14 @@ inputs:
         description: 'Output lcov info file'
         required: true
         default: 'coverage.info'
+    build_dir:
+        description: 'Build directory (lcov -d)'
+        required: true
+        default: '.'
+    base_dir:
+        description: 'Base directory (lcov -b)'
+        required: true
+        default: '.'
 runs:
     using: 'docker'
     image: 'Dockerfile'
