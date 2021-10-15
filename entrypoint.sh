@@ -13,7 +13,7 @@ cd $GITHUB_WORKSPACE
 mkdir -p $TEMP_LCOV_PATH
 
 # Generate the initial lcov version and strips out anything related to /usr
-/usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH -c -d . -o $TEMP_LCOV_PATH/info
+/usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH -c -d $INPUT_BUILD_DIR -b $INPUT_BASE_DIR -o $TEMP_LCOV_PATH/info
 /usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH -r $TEMP_LCOV_PATH/info '/usr/*' -o $TEMP_LCOV_PATH/filtered
 
 if [ -n "$INPUT_REMOVE_PATTERNS" ];
