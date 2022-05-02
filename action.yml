@@ -26,4 +26,4 @@ inputs:
         default: '.'
 runs:
     using: 'docker'
-    image: 'Dockerfile'
+    image: 'docker://ghcr.io/danielealbano/lcov-action:v3'
