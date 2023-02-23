@@ -36,26 +36,26 @@ No outputs.
 
 gcov 7 (version 7.5.0)
 ```yaml
-uses: danielealbano/lcov-action@v1
+uses: danielealbano/lcov-action@v3
 with:
   gcov_tool: /usr/bin/gcov-7
 ```
 
 gcov 8 (version 8.4.0)
 ```yaml
-uses: danielealbano/lcov-action@v1
+uses: danielealbano/lcov-action@v3
 with:
   gcov_tool: /usr/bin/gcov-8
 ```
 
 gcov 9 (version 9.3.0) - default
 ```yaml
-uses: danielealbano/lcov-action@v1
+uses: danielealbano/lcov-action@v3
 ```
 
 Remove the 3rdparties and benchmarks subfolder (and any path that would contain these two) from the code coverage
 ```yaml
-uses: danielealbano/lcov-action@v1
+uses: danielealbano/lcov-action@v3
 with:
   remove_patterns: 3rdparties,benchmarks
 ```
