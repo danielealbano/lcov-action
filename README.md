@@ -60,6 +60,35 @@ with:
   remove_patterns: 3rdparties,benchmarks
 ```
 
+## Integration with codecov
+
+The lcov-action can be leverage to easily integrated [codecov](https://about.codecov.io/) and their [action](https://github.com/marketplace/actions/codecov) into any CI pipeline.
+
+When running lcov-action with the default working directory and coverage output file, the `coverage.info` will be created in `${{github.workspace}}`, so the only step required is to pass the full path to the codecov action using `files: ${{github.workspace}}/coverage.info`.
+
+Here an example taken from [cachegrand](https://github.com/danielealbano/cachegrand) main CI workflow ( https://github.com/danielealbano/cachegrand/blob/main/.github/workflows/build_and_test.yml )
+
+```yaml
+- name: Tests - Unit Tests
+  working-directory: ${{github.workspace}}/build
+  shell: bash
+  run: cd tests/unit_tests && sudo ./cachegrand-tests --order lex
+
+- name: Code Coverage - Generation
+  uses: danielealbano/lcov-action@v3
+  with:
+    gcov_path: /usr/bin/gcov-9
+    remove_patterns: 3rdparty,tests
+
+- uses: codecov/codecov-action@v3
+  with:
+    files: ${{github.workspace}}/coverage.info
+    flags: unittests # optional
+    name: cachegrand-server
+    fail_ci_if_error: false
+    verbose: false
+```
+
 ## Author
 
 Copyright (C) 2020-2021 Daniele Salvatore Albano
