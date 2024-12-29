@@ -4,14 +4,6 @@ branding:
     color: 'blue'
     icon: 'check-square'
 inputs:
-    gcov_path:
-        description: 'Path to gcov'
-        required: true
-        default: '/usr/bin/gcov'
-    remove_patterns:
-        description: 'Remove patterns, comma separated'
-        required: true
-        default: ''
     output_lcov_info:
         description: 'Output lcov info file'
         required: true
@@ -24,6 +16,18 @@ inputs:
         description: 'Base directory (lcov -b)'
         required: true
         default: '.'
+    gcov_path:
+        description: 'Path to gcov'
+        required: false
+        default: '/usr/bin/gcov'
+    remove_patterns:
+        description: 'Remove patterns, comma separated'
+        required: false
+        default: ''
+    extra_args:
+        description: 'Extra lcov arguments'
+        required: false
+        default: ''
 runs:
     using: 'docker'
-    image: 'docker://ghcr.io/danielealbano/lcov-action:v4'
+    image: 'docker://ghcr.io/danielealbano/lcov-action:v4.1'

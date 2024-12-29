@@ -6,27 +6,31 @@ This action let you to run lcov with the needed parameters
 
 ## Inputs
 
+### `output_lcov_info` (**Required**)
+
+Output path for the lcov info, by default `coverage.info`
+
+### `build_dir` (**Required**)
+
+Build directory (see lcov man for option -d)
+
+### `base_dir` (**Required**)
+
+Base directory (see lcov man for option -b)
+
 ### `gcov_tool`
 
-**Required** Path to the gcov binary, by default `/usr/bin/gcov`.
+Path to the gcov binary, by default `/usr/bin/gcov`.
 
 It's possible to use `/usr/bin/gcov-9` through `/usr/bin/gcov-14`.
 
 ### `remove_patterns`
 
-**Required** Comma separated list of simple name-matching patterns to remove from the build, can be empty.
+Comma separated list of simple name-matching patterns to remove from the build, can be empty.
 
-### `output_lcov_info`
+### `extra_args`
 
-**Required** Output path for the lcov info, by default `coverage.info`
-
-### `build_dir`
-
-**Required** Build directory (see lcov man for option -d)
-
-### `base_dir`
-
-**Required** Base directory (see lcov man for option -b)
+Extra lcov arguments
 
 ## Outputs
 
@@ -36,49 +40,49 @@ No outputs.
 
 gcov 13 (version 13.3.0) - default
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   gcov_path: /usr/bin/gcov
 ```
 
 gcov 9 (version 9.5.0)
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   gcov_path: /usr/bin/gcov-9
 ```
 
 gcov 10 (version 10.5.0)
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   gcov_path: /usr/bin/gcov-10
 ```
 
 gcov 11 (version 11.4.0)
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   gcov_path: /usr/bin/gcov-11
 ```
 
 gcov 12 (version 12.3.0)
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   gcov_path: /usr/bin/gcov-12
 ```
 
 gcov 14 (version 14.2.0)
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   gcov_path: /usr/bin/gcov-14
 ```
 
 Remove the 3rdparties and benchmarks subfolder (and any path that would contain these two) from the code coverage
 ```yaml
-uses: danielealbano/lcov-action@v4
+uses: danielealbano/lcov-action@v4.1
 with:
   remove_patterns: 3rdparties,benchmarks
 ```
@@ -98,12 +102,12 @@ Here an example taken from [cachegrand](https://github.com/danielealbano/cachegr
   run: cd tests/unit_tests && sudo ./cachegrand-tests --order lex
 
 - name: Code Coverage - Generation
-  uses: danielealbano/lcov-action@v4
+  uses: danielealbano/lcov-action@v4.1
   with:
     gcov_path: /usr/bin/gcov-9
     remove_patterns: 3rdparty,tests
 
-- uses: codecov/codecov-action@v4
+- uses: codecov/codecov-action@v3
   with:
     files: ${{github.workspace}}/coverage.info
     flags: unittests # optional

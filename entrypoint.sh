@@ -27,7 +27,7 @@ then
 fi
 
 # Logging
-/usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH -l $TEMP_LCOV_PATH/filtered
+/usr/bin/lcov --gcov-tool $INPUT_GCOV_PATH -l $TEMP_LCOV_PATH/filtered $INPUT_EXTRA_ARGS
 
 # Copy the filtered lcov output to the requested path
 cp $TEMP_LCOV_PATH/filtered $INPUT_OUTPUT_LCOV_INFO
