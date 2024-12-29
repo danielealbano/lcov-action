@@ -10,7 +10,7 @@ This action let you to run lcov with the needed parameters
 
 **Required** Path to the gcov binary, by default `/usr/bin/gcov`.
 
-It's possible to use `/usr/bin/gcov-7` and `/usr/bin/gcov-8`.
+It's possible to use `/usr/bin/gcov-9` through `/usr/bin/gcov-14`.
 
 ### `remove_patterns`
 
@@ -34,28 +34,51 @@ No outputs.
 
 ## Example usage
 
-gcov 7 (version 7.5.0)
+gcov 13 (version 13.3.0) - default
 ```yaml
-uses: danielealbano/lcov-action@v3
+uses: danielealbano/lcov-action@v4
 with:
-  gcov_tool: /usr/bin/gcov-7
+  gcov_path: /usr/bin/gcov
 ```
 
-gcov 8 (version 8.4.0)
+gcov 9 (version 9.5.0)
 ```yaml
-uses: danielealbano/lcov-action@v3
+uses: danielealbano/lcov-action@v4
 with:
-  gcov_tool: /usr/bin/gcov-8
+  gcov_path: /usr/bin/gcov-9
 ```
 
-gcov 9 (version 9.3.0) - default
+gcov 10 (version 10.5.0)
 ```yaml
-uses: danielealbano/lcov-action@v3
+uses: danielealbano/lcov-action@v4
+with:
+  gcov_path: /usr/bin/gcov-10
+```
+
+gcov 11 (version 11.4.0)
+```yaml
+uses: danielealbano/lcov-action@v4
+with:
+  gcov_path: /usr/bin/gcov-11
+```
+
+gcov 12 (version 12.3.0)
+```yaml
+uses: danielealbano/lcov-action@v4
+with:
+  gcov_path: /usr/bin/gcov-12
+```
+
+gcov 14 (version 14.2.0)
+```yaml
+uses: danielealbano/lcov-action@v4
+with:
+  gcov_path: /usr/bin/gcov-14
 ```
 
 Remove the 3rdparties and benchmarks subfolder (and any path that would contain these two) from the code coverage
 ```yaml
-uses: danielealbano/lcov-action@v3
+uses: danielealbano/lcov-action@v4
 with:
   remove_patterns: 3rdparties,benchmarks
 ```
@@ -75,12 +98,12 @@ Here an example taken from [cachegrand](https://github.com/danielealbano/cachegr
   run: cd tests/unit_tests && sudo ./cachegrand-tests --order lex
 
 - name: Code Coverage - Generation
-  uses: danielealbano/lcov-action@v3
+  uses: danielealbano/lcov-action@v4
   with:
     gcov_path: /usr/bin/gcov-9
     remove_patterns: 3rdparty,tests
 
-- uses: codecov/codecov-action@v3
+- uses: codecov/codecov-action@v4
   with:
     files: ${{github.workspace}}/coverage.info
     flags: unittests # optional

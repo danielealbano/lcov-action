@@ -5,7 +5,7 @@ branding:
     icon: 'check-square'
 inputs:
     gcov_path:
-        description: 'Path to gcov (github uses GCC 7.5.0)'
+        description: 'Path to gcov'
         required: true
         default: '/usr/bin/gcov'
     remove_patterns:
@@ -26,4 +26,4 @@ inputs:
         default: '.'
 runs:
     using: 'docker'
-    image: 'docker://ghcr.io/danielealbano/lcov-action:v3'
+    image: 'docker://ghcr.io/danielealbano/lcov-action:v4'
